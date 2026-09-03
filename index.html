@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A ten-minute experiment in tuning the feel of a jump.">
+    <meta name="theme-color" content="#0b0d12">
+    <meta property="og:title" content="Jump Feel Lab · EGDD">
+    <meta property="og:description" content="Tune five variables until a jump communicates a feeling—then explain how you found it.">
+    <meta property="og:type" content="website">
+    <title>Jump Feel Lab · EGDD</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <header class="intro">
+        <p class="eyebrow">EGDD · 10-minute experiment</p>
+        <h1>Make the jump <span>feel</span> something.</h1>
+        <p class="lede">Your group gets a feeling. Tune the jump until it communicates that feeling—then explain how you found it.</p>
+      </header>
+
+      <section class="experiment" aria-label="Jump feel experiment">
+        <div class="play-area">
+          <div class="game-shell">
+            <canvas id="game" width="960" height="480" aria-label="A small platform game. Use left and right arrows to move and spacebar to jump."></canvas>
+            <div class="touch-controls" aria-label="Game controls">
+              <div>
+                <button type="button" data-move="left" aria-label="Move left">←</button>
+                <button type="button" data-move="right" aria-label="Move right">→</button>
+              </div>
+              <button type="button" id="touch-jump" class="jump-button">JUMP</button>
+            </div>
+          </div>
+          <div class="keyboard-hint">
+            <span><kbd>←</kbd><kbd>→</kbd> or <kbd>A</kbd><kbd>D</kbd> move</span>
+            <span><kbd>SPACE</kbd> jumps</span>
+          </div>
+        </div>
+
+        <aside class="tuning-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="step-label">Change · test · notice</p>
+              <h2>Tune the feel</h2>
+            </div>
+            <button type="button" id="reset-settings" class="icon-button" aria-label="Reset all sliders" title="Reset all sliders">↺</button>
+          </div>
+
+          <div class="slider-stack">
+            <label class="slider-row">
+              <span><span>Gravity</span><output for="gravity">1700</output></span>
+              <input id="gravity" type="range" min="500" max="3000" step="50" value="1700">
+            </label>
+            <label class="slider-row">
+              <span><span>Jump force</span><output for="jump">600</output></span>
+              <input id="jump" type="range" min="300" max="900" step="10" value="600">
+            </label>
+            <label class="slider-row">
+              <span><span>Run speed</span><output for="speed">250</output></span>
+              <input id="speed" type="range" min="80" max="500" step="10" value="250">
+            </label>
+            <label class="slider-row">
+              <span><span>Air control</span><output for="airControl">60%</output></span>
+              <input id="airControl" type="range" min="0" max="100" step="5" value="60">
+            </label>
+            <label class="slider-row">
+              <span><span>Coyote time</span><output for="coyote">100ms</output></span>
+              <input id="coyote" type="range" min="0" max="220" step="10" value="100">
+            </label>
+          </div>
+
+          <div class="panel-actions">
+            <button type="button" id="restart">↺&nbsp; Restart jump</button>
+            <button type="button" id="copy-settings" class="primary">▣&nbsp; <span>Copy settings</span></button>
+          </div>
+        </aside>
+      </section>
+
+      <section class="brief" aria-label="Experiment brief">
+        <p class="brief-number">01</p><p><strong>Change one thing.</strong> Test it. Notice what changed.</p>
+        <p class="brief-number">02</p><p><strong>Keep a trace.</strong> Note the settings and what you felt.</p>
+        <p class="brief-number">03</p><p><strong>Be ready to explain.</strong> What did you try—and what convinced you?</p>
+      </section>
+    </main>
+  </body>
+</html>
